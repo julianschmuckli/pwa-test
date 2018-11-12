@@ -4,6 +4,7 @@ console.log(base_url);
 var offline_files = [
     "index.html",
     "manifest.json",
+    "assets/init.js",
     "assets/offline.js",
     "assets/storage.js",
     "assets/icon.png"
@@ -44,7 +45,7 @@ self.addEventListener('fetch', function (event) {
                 );
                 return caches.open('offline').then(function (cache) {
                     var cache_file = (request.url).replace(base_url + "/", "").trim();
-                    console.log("Test: " + cache_file);
+                    console.log("Loading " + cache_file);
 
                     if (cache_file == "") {
                         cache_file = offline_files[0];
