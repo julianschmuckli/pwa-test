@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
 </head>
 <body>
 <div id="root">
@@ -12,10 +14,12 @@
             <div id="loading-container">
                 <img src="assets/icon.png" alt="logo" id="loader"/>
                 <h1 style="font-family: Arial;">Progressive Web App</h1>
+                <p>Status: <span id="online-status"></span></p>
             </div>
         </div>
     </div>
 </div>
+<script src="assets/offline.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
