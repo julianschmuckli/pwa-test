@@ -1,8 +1,12 @@
+var base_url = self.location.origin + "/pwa-test";
+console.log(base_url);
+
 var offline_files = [
     "index.html",
     "manifest.json",
     "assets/offline.js",
-    "assets/storage.js"
+    "assets/storage.js",
+    "assets/icon.png"
 ];
 
 self.addEventListener('install', function (event) {
@@ -34,13 +38,19 @@ self.addEventListener('fetch', function (event) {
         event.respondWith(
             fetch(request).catch(function (error) {
 
-                console.error(
+                console.log(
                     '[onfetch] Failed. Serving cached offline fallback ' +
                     error
                 );
                 return caches.open('offline').then(function (cache) {
-                    var url_split = request.url.split("/");
-                    return cache.match(url_split[url_split.length - 1]);
+                    var cache_file = (request.url).replace(base_url + "/", "").trim();
+                    console.log("Test: " + cache_file);
+
+                    if (cache_file == "") {
+                        cache_file = offline_files[0];
+                    }
+
+                    return cache.match(cache_file);
                 });
             })
         );

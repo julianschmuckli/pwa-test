@@ -5,7 +5,8 @@ if (('localStorage' in window)) {
 }
 
 var text_note = document.getElementById("data-store");
-window.onload = function () {
+
+function initStorage() {
     try {
         var note = JSON.parse(localStorage.getItem("note"));
         text_note.value = note.text;
@@ -13,7 +14,7 @@ window.onload = function () {
         //It was never a note created
     }
     text_note.onkeyup = saveNote;
-};
+}
 
 function saveNote() {
     var value = {text: text_note.value};

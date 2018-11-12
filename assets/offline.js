@@ -8,7 +8,3 @@ function updateStatus() {
         document.getElementById("online-status").innerText = "Offline";
     }
 }
-
-window.onload = function () {
-    updateStatus();
-};
