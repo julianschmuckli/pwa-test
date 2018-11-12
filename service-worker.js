@@ -1,7 +1,8 @@
 var offline_files = [
     "index.html",
     "manifest.json",
-    "assets/offline.js"
+    "assets/offline.js",
+    "assets/storage.js"
 ];
 
 self.addEventListener('install', function (event) {
