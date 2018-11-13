@@ -7,6 +7,7 @@ var offline_files = [
     "assets/init.js",
     "assets/offline.js",
     "assets/storage.js",
+    "assets/gyroscope.js",
     "assets/icon.png"
 ];
 
